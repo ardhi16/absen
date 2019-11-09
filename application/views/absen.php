@@ -10,7 +10,7 @@
     <script src="<?= site_url('media/js/jquery.min.js') ?>"></script>
 </head>
 
-<body>
+<body onload="startTime()">
     <!-- As a link -->
     <nav class="navbar navbar-dark bg-dark mb-3">
         <a class="navbar-brand" href="#">Absen Piket</a>
@@ -19,6 +19,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h3><?= date('d F Y') ?></h3>
+                <h5 id="jam">19:00</h5>
                 <?php if ($this->session->flashdata('berhasil')) : ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong><?= $this->session->flashdata('berhasil'); ?></strong>
@@ -87,6 +88,26 @@
 
 
     <script src="<?= site_url('media/js/bootstrap.min.js') ?>"></script>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('jam').innerHTML =
+                h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i
+            }; // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
 </body>
 
 </html>

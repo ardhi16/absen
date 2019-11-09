@@ -33,8 +33,8 @@ class Absen extends CI_Controller
         } else {
             $params = [];
             $params['DATE(kehadiran_tanggal)'] = date('Y-m-d');
-            $data['anggota'] = $this->db->get('anggota')->result_array();
-            $data['piket'] = $this->db->get('piket')->result_array();
+            $data['anggota'] = $this->db->order_by('anggota_nama', 'asc')->get('anggota')->result_array();
+            $data['piket'] = $this->db->order_by('piket_jenis', 'asc')->get('piket')->result_array();
             $data['kehadiran'] = $this->Absen_model->get($params)->result_array();
             $data['title'] = 'ABSEN';
             $this->load->view('absen', $data);
