@@ -14,11 +14,12 @@
     <!-- As a link -->
     <nav class="navbar navbar-dark bg-dark mb-3">
         <a class="navbar-brand" href="#">Absen Piket</a>
+        <a class="btn btn-success" href="<?= site_url('auth/login') ?>">LOGIN</a>
     </nav>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">
-                <h3><?= date('d F Y') ?></h3>
+                <h3><?= tgl_indo(date('Y-m-d'), 'l, d F Y') ?></h3>
                 <h5 id="jam">19:00</h5>
                 <?php if ($this->session->flashdata('berhasil')) : ?>
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -76,7 +77,7 @@
                                     <td><?= $row['anggota_nama'] ?></td>
                                     <td><?= $row['anggota_divisi'] ?></td>
                                     <td><?= $row['piket_jenis'] ?></td>
-                                    <td><?= date('d F Y H:i:s', strtotime($row['kehadiran_tanggal'])) ?></td>
+                                    <td><?= tgl_indo($row['kehadiran_tanggal'], 'l, d F Y H:i') ?></td>
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>
