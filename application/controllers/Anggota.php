@@ -22,6 +22,41 @@ class Anggota extends CI_Controller
         $data['main'] = 'anggota/index';
         $this->load->view('layout', $data);
     }
+
+    function tambah()
+    {
+        if ($_POST) {
+            $data['anggota_nama'] = $this->input->post('anggota_nama');
+            $data['anggota_divisi'] = $this->input->post('anggota_divisi');
+            $this->db->insert('anggota', $data);
+            redirect('anggota');
+        } else {
+            $data['title'] = 'Tambah anggota';
+            $data['main'] = 'anggota/tambah';
+            $this->load->view('layout', $data);
+        }
+    }
+
+    function edit($anggota_id)
+    {
+        if($_POST){
+            $data['anggota_nama'] = $this->input->post('anggota_nama');
+            $data['anggota_divisi'] = $this->input->post('anggota_divisi');
+            $this->db->update('anggota', $data, ['anggota_id' => $anggota_id]);
+            redirect('anggota');
+        } else{
+            $data['anggota'] = $this->db->get_where('anggota', ['anggota_id' => $anggota_id])->row_array();
+            $data['title'] = 'Edit';
+            $data['main'] = 'anggota/edit';
+            $this->load->view('layout', $data);
+        }
+    }
+
+    function hapus($anggota_id)
+    {
+        $this->db->delete('anggota', ['anggota_id' => $anggota_id]);
+        redirect('anggota');
+    }
 }
 
 /* End of file Anggota.php */

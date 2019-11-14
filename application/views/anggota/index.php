@@ -1,5 +1,5 @@
 <h3>-->Anggota</h3>
-<a class="btn btn-success mb-3 btn-sm" href="<?= site_url('piket/tambah') ?>">Tambah</a>
+<a class="btn btn-success mb-3 btn-sm" href="<?= site_url('anggota/tambah') ?>">Tambah</a>
 <div class="table-responsive">
     <table class="table table-striped mt-3 myTable">
         <thead class="table-dark">
