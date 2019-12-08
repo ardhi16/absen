@@ -13,7 +13,7 @@
 <body onload="startTime()">
     <!-- As a link -->
     <nav class="navbar navbar-dark bg-dark mb-3">
-        <a class="navbar-brand" href="#">Absen Piket</a>
+        <a class="navbar-brand" href="#">Absen Piket MMC</a>
         <a class="btn btn-success" href="<?= site_url('auth/login') ?>">LOGIN</a>
     </nav>
     <div class="container-fluid">

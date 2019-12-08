@@ -8,7 +8,7 @@
     <title><?= $title ?></title>
     <link rel="stylesheet" href="<?= site_url('media/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= site_url('media/css/bootstrap-datepicker.min.css') ?>">
-    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="<?= site_url('media/css/datatables.min.css') ?>">
     <script src="<?= site_url('media/js/jquery.min.js') ?>"></script>
 </head>
 
@@ -52,7 +52,7 @@
 
     <script src="<?= site_url('media/js/bootstrap.min.js') ?>"></script>
     <script src="<?= site_url('media/js/bootstrap-datepicker.min.js') ?>"></script>
-    <script src="http://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="<?= site_url('media/js/datatables.min.js') ?>"></script>
 
     <script>
         $('.datepicker').datepicker({
